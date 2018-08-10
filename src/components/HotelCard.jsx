@@ -17,7 +17,7 @@ const HotelCard = props => (
       <Typography variant="headline" color="primary">
         {props.hotel.name}
       </Typography>
-      <Typography variant="subheading" color="secondary" gutterBottom>
+      <Typography variant="subheading" color="secondary" className="country" gutterBottom>
         <PlaceIcon fontSize="inherit" />
         {props.hotel.city}
       </Typography>

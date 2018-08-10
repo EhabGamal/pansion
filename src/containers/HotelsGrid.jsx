@@ -5,7 +5,7 @@ import HotelCard from "../components/HotelCard";
 const HotelsGrid = props => (
   <Grid container spacing={16}>
     {props.hotels.map(hotel => (
-      <Grid item xs={4} key={hotel.name}>
+      <Grid item xs={12} sm={6} md={4} key={hotel.name}>
         <HotelCard hotel={hotel} nights={props.nights} />
       </Grid>
     ))}
