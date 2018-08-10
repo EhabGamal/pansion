@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "eslintConfig": {
-    "extends": "react-app",
+    "extends": "react-app"
   },
   "dependencies": {
     "@material-ui/core": "^1.4.3",
