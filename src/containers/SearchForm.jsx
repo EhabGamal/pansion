@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
 import DateInput from "../components/DateInput";
 import { getHotels } from "../server/server";
-import { msToDays } from "../utils/formatter";
+import { dateFormatter, msToDays } from "../utils/formatter";
 
 class SearchForm extends Component {
   constructor(props) {
@@ -64,17 +64,15 @@ class SearchForm extends Component {
       .then(this.props.onSearch);
   };
   filterAvailableHotels({ hotels }) {
-    return hotels.filter(hotel => {
-      let available = false;
-      hotel.availability.forEach(availability => {
-        let availableFrom = new Date(availability.from.split("-").reverse().join("-"));
-        let availableTo = new Date(availability.to.split("-").reverse().join("-"));
-        if (availableFrom <= new Date(this.state.fromDate) && availableTo >= new Date(this.state.toDate)) {
-          return available = true;
-        }
-      });
-      return available;
-    });
+    let filterFrom = new Date(this.state.fromDate);
+    let filterTo = new Date(this.state.toDate);
+    return hotels
+      .filter(hotel => hotel.availability
+        .filter(availability =>
+          dateFormatter(availability.from) <= filterFrom
+          && dateFormatter(availability.to) >= filterTo
+        ).length
+      );
   };
   setDate({ target: input }) {
     this.setState(
