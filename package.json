@@ -2,6 +2,7 @@
   "name": "pansion",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://ehabgamal.github.io/pansion",
   "eslintConfig": {
     "extends": "react-app"
   },
