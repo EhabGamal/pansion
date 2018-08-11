@@ -12,12 +12,14 @@ class SearchForm extends Component {
     this.setDate = this.setDate.bind(this);
     this.searchHotels = this.searchHotels.bind(this);
     this.filterAvailableHotels = this.filterAvailableHotels.bind(this);
+    this.getPriceRange = this.getPriceRange.bind(this);
     this.state = {
       fromDate: "2020-10-05",
       toDate: "2020-10-15",
       error: false
     };
   }
+
   render() {
     return (
       <form noValidate>
@@ -47,22 +49,26 @@ class SearchForm extends Component {
               onClick={this.searchHotels}
               disabled={!(this.state.toDate && this.state.fromDate && !this.state.error)}
             >
-              Search
               <SearchIcon />
+              &nbsp;Search
             </Button>
           </Grid>
         </Grid>
       </form>
     );
   }
+
   searchHotels() {
     let ms = new Date(this.state.toDate) - new Date(this.state.fromDate);
-    this.props.isLoading(true);
+    let nights = msToDays(ms);
+    this.props.onSearch({ loading: true });
     getHotels()
       .then(this.filterAvailableHotels)
-      .then(hotels => ({ hotels, nights: msToDays(ms) }))
+      .then(this.getPriceRange)
+      .then(result => ({ ...result, nights, loading: false }))
       .then(this.props.onSearch);
   };
+
   filterAvailableHotels({ hotels }) {
     let filterFrom = new Date(this.state.fromDate);
     let filterTo = new Date(this.state.toDate);
@@ -74,10 +80,22 @@ class SearchForm extends Component {
         ).length
       );
   };
+
+  getPriceRange(hotels) {
+    let range = hotels.reduce((acc, val, i) => ({
+      min: val.price < acc.min ? val.price : acc.min,
+      max: val.price > acc.max ? val.price : acc.max
+    }), { min: hotels[0].price, max: hotels[0].price });
+    range.min = Math.floor(range.min);
+    range.max = Math.floor(range.max);
+    range.value = range.min;
+    return { hotels, range };
+  }
+
   setDate({ target: input }) {
     this.setState(
       { [input.id]: input.value },
-      () => this.setState({ error: this.state.fromDate > this.state.toDate })
+      () => this.setState({ error: this.state.fromDate >= this.state.toDate })
     );
   };
 }
