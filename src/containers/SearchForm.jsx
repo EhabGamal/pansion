@@ -92,6 +92,7 @@ class SearchForm extends Component {
   };
 
   getPriceRange(hotels) {
+    if(hotels.length === 0) return {hotels: []};
     let range = hotels.reduce((acc, val, i) => ({
       min: val.price < acc.min ? val.price : acc.min,
       max: val.price > acc.max ? val.price : acc.max

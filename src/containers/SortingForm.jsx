@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 import AttachMonyIcon from "@material-ui/icons/AttachMoney";
 import SortByAlphaIcon from "@material-ui/icons/SortByAlpha";
 
@@ -17,9 +18,11 @@ class SortingForm extends Component {
   render() {
     return (
       <Paper className="paper">
-        <Grid container spacing={24} alignItems="center">
-          <Grid item xs={6}>
-            <p className='nights'>Total Nights: {this.props.nights}</p>
+        <Grid container spacing={16} alignItems="center" justify="flex-end">
+          <Grid item id="nights">
+            <Typography variant="subheading">
+              Total Nights: {this.props.nights}
+            </Typography>
           </Grid>
           <Grid item>
             <Button
@@ -31,8 +34,6 @@ class SortingForm extends Component {
               <SortByAlphaIcon color="secondary" />
               &nbsp;by name
             </Button>
-          </Grid>
-          <Grid item>
             <Button
               id="price"
               variant="contained"
@@ -48,11 +49,11 @@ class SortingForm extends Component {
     );
   }
   changeSort(field) {
-    let newState = {sortField: field, order: this.state.order};
+    let newState = { sortField: field, order: this.state.order };
     newState.order *= this.state.sortField === newState.sortField ? -1 : 1;
     this.setState(
       newState,
-      () => this.props.onSort({sort: this.state})
+      () => this.props.onSort({ sort: this.state })
     );
   }
 }
