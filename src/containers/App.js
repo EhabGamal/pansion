@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import LoadingSpinner from '../components/Loading';
+import NoContent from '../components/NoContent';
 import SearchForm from './SearchForm';
 import FiltersForm from './FiltersForm';
 import SortingForm from './SortingForm';
@@ -11,7 +13,7 @@ class App extends Component {
     this.updateState = this.updateState.bind(this);
     this.state = {
       loading: false,
-      hotels: [],
+      hotels: null,
       nights: 0,
       filter: {},
       sort: {}
@@ -20,30 +22,36 @@ class App extends Component {
 
   render() {
     return (
-      <Grid container spacing={16} justify={"center"}>
-        <Grid item xs={12}>
+      <Grid id="container" container spacing={16} justify={"flex-start"} direction="column" alignItems="stretch">
+        <Grid item>
           <SearchForm onSearch={this.updateState} isLoading={this.setLoadingState} />
         </Grid>
-        { this.state.hotels.length !== 0 &&
-        <Grid container spacing={16} item xs={12}>
-          <Grid item xs={12} md={3}>
-            <FiltersForm
-              range={this.state.range}
-              query={this.state.query}
-              onFilter={this.updateState}
-            />
-          </Grid>
-          <Grid container spacing={16} item xs={12} md={9}>
-            <Grid item xs={12}>
-              <SortingForm onSort={this.updateState} nights={this.state.nights} />
-            </Grid>
-            <Grid item xs={12}>
-              <HotelsGrid
-                {...this.state}
+        { !this.state.loading && this.state.hotels && this.state.hotels.length !== 0 &&
+        <Grid item>
+          <Grid container spacing={16}>
+            <Grid item xs={12} md={3}>
+              <FiltersForm
+                range={this.state.range}
+                query={this.state.query}
+                onFilter={this.updateState}
               />
+            </Grid>
+            <Grid item xs={12} md={9}>
+              <Grid container spacing={16}>
+                <Grid item xs={12}>
+                  <SortingForm onSort={this.updateState} nights={this.state.nights} />
+                </Grid>
+                <Grid item xs={12}>
+                  <HotelsGrid
+                    {...this.state}
+                  />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>}
+        { !this.state.loading && this.state.hotels && this.state.hotels.length === 0 && <NoContent />}
+        { this.state.loading && <LoadingSpinner />}
       </Grid>
     );
   }

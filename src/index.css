@@ -7,6 +7,12 @@ body {
 #root {
   min-height: calc(100vh - 16px);
   padding: 8px;
+  background-color: #f4f6f8;
+  background-image: url("./background.svg");
+}
+
+#container {
+  min-height: calc(100vh - 16px);
 }
 
 .App {
@@ -36,4 +42,20 @@ form {
 
 .paper {
   padding: 12px;
+}
+
+#nights {
+  flex-grow: 1;
+}
+
+#name, #price {
+  margin: auto 8px;
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.large-icon {
+  font-size: 5rem;
 }
