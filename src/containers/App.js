@@ -50,8 +50,8 @@ class App extends Component {
             </Grid>
           </Grid>
         </Grid>}
-        { !this.state.loading && this.state.hotels && this.state.hotels.length === 0 && <NoContent />}
-        { this.state.loading && <LoadingSpinner />}
+        { !this.state.loading && this.state.hotels && this.state.hotels.length === 0 && <NoContent className="no-content" />}
+        { this.state.loading && <LoadingSpinner className="loading-spinner" />}
       </Grid>
     );
   }
