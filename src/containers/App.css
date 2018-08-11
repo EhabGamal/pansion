@@ -1,9 +1,14 @@
 #root {
-  padding: 12px;
+  min-height: calc(100vh - 16px);
+  padding: 8px;
 }
 
 .App {
   text-align: center;
+}
+
+#slider {
+  max-width: calc(100% - 16px);
 }
 
 .card {
@@ -21,4 +26,8 @@ form {
 
 .country {
   text-transform: capitalize;
+}
+
+.paper {
+  padding: 12px;
 }
