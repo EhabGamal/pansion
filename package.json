@@ -21,6 +21,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "editorconfig": "^0.15.0"
+    "editorconfig": "^0.15.0",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "react-addons-test-utils": "^15.6.2"
   }
 }
