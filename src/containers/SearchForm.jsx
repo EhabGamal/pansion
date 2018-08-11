@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 import SearchIcon from "@material-ui/icons/Search";
+import HotelIcon from "@material-ui/icons/Hotel";
 import DateInput from "../components/DateInput";
 import { getHotels } from "../server/server";
 import { dateFormatter, msToDays } from "../utils/formatter";
@@ -23,8 +25,16 @@ class SearchForm extends Component {
   render() {
     return (
       <form noValidate>
-        <Grid container spacing={8} alignItems="center">
-          <Grid item xs={12} sm={5}>
+        <Grid container spacing={16} alignContent="center">
+          <Grid item xs={12}>
+            <Typography variant="headline" color="primary" gutterBottom >
+              Welcome to Pansion Hotels.&nbsp;
+              <HotelIcon fontSize="inherit" />
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container spacing={16} justify="space-evenly">
+          <Grid item xs={12} sm={4} md={3}>
             <DateInput
               id="fromDate"
               title="From"
@@ -33,7 +43,7 @@ class SearchForm extends Component {
               error={this.state.error}
             />
           </Grid>
-          <Grid item xs={12} sm={5}>
+          <Grid item xs={12} sm={4} md={3}>
             <DateInput
               id="toDate"
               title="To"
@@ -42,7 +52,7 @@ class SearchForm extends Component {
               error={this.state.error}
             />
           </Grid>
-          <Grid item xs={12} sm={2}>
+          <Grid item xs={12} sm={4} md={2}>
             <Button
               variant="contained"
               color="primary"

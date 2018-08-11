@@ -4,7 +4,6 @@ import SearchForm from './SearchForm';
 import FiltersForm from './FiltersForm';
 import SortingForm from './SortingForm';
 import HotelsGrid from './HotelsGrid';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <Grid container spacing={16} justify={"center"}>
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <SearchForm onSearch={this.updateState} isLoading={this.setLoadingState} />
         </Grid>
         { this.state.hotels.length !== 0 &&
