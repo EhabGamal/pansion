@@ -1,7 +1,6 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import DissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
 
 const NoContent = () => (
   <Grid container className="flex-grow-1" justify="center" alignItems="center">

@@ -4,7 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-
 import Typography from "@material-ui/core/Typography";
 import Slider from '@material-ui/lab/Slider';
 
@@ -22,7 +21,7 @@ const FiltersForm = props => (
         />
       </Grid>
       <Grid item xs={12}>
-        <Typography id="sliderLabel">Price start from: {props.range.value} AED</Typography>
+        <Typography id="sliderLabel">Price per night: {props.range.value} AED</Typography>
         <Slider
           id="slider"
           step={1}
