@@ -7,21 +7,21 @@ import PlaceIcon from "@material-ui/icons/Place";
 import { currencyFormatter } from "../utils/formatter";
 
 const HotelCard = props => (
-  <Card className="card">
+  <Card className="card hotel-card">
     <CardMedia
-      className="media"
+      className="media hotel-card-media"
       image={`https://loremflickr.com/320/240/${props.hotel.city},city`}
       title="Contemplative Reptile"
     />
     <CardContent>
-      <Typography variant="headline" color="primary">
+      <Typography variant="headline" className="hotel-card-name" color="primary">
         {props.hotel.name}
       </Typography>
-      <Typography variant="subheading" color="secondary" className="country" gutterBottom>
+      <Typography variant="subheading" className="country hotel-card-city" color="secondary" gutterBottom>
         <PlaceIcon fontSize="inherit" />
         {props.hotel.city}
       </Typography>
-      <Typography variant="title">{currencyFormatter(props.hotel.price * props.nights)} AED</Typography>
+      <Typography variant="title" className="hotel-card-price">{currencyFormatter(props.hotel.price * props.nights)} AED</Typography>
     </CardContent>
   </Card>
 );
