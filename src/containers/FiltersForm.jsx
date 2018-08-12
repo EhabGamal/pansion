@@ -13,6 +13,7 @@ const FiltersForm = props => (
       <Grid item xs={12}>
         <TextField
           label="Search Hotels"
+          className="search-query"
           fullWidth
           onChange={e => props.onFilter({ query: e.target.value })}
           InputProps={{
