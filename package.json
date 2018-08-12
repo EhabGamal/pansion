@@ -18,10 +18,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test:coverage": "react-scripts test --coverage",
+    "test:coverage": "react-scripts test --env=jsdom --coverage",
+    "test:coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "editorconfig": "^0.15.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
