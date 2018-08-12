@@ -9,7 +9,7 @@ const HotelsGrid = props => (
       .sort(sortHotels(props))
       .map(hotel => (
         <Grid item xs={12} sm={6} md={4} key={hotel.name}>
-          <HotelCard hotel={hotel} nights={props.nights} />
+          <HotelCard className='hotel-card' hotel={hotel} nights={props.nights} />
         </Grid>
       ))}
   </Grid>
