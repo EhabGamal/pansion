@@ -30,22 +30,12 @@ class App extends Component {
         <Grid item>
           <Grid container spacing={16}>
             <Grid item xs={12} md={3}>
-              <FiltersForm
-                range={this.state.range}
-                query={this.state.query}
-                onFilter={this.updateState}
-              />
+              <FiltersForm range={this.state.range} query={this.state.query} onFilter={this.updateState} />
             </Grid>
             <Grid item xs={12} md={9}>
               <Grid container spacing={16}>
-                <Grid item xs={12}>
-                  <SortingForm onSort={this.updateState} nights={this.state.nights} />
-                </Grid>
-                <Grid item xs={12}>
-                  <HotelsGrid
-                    {...this.state}
-                  />
-                </Grid>
+                <Grid item xs={12}><SortingForm onSort={this.updateState} nights={this.state.nights} /></Grid>
+                <Grid item xs={12}><HotelsGrid {...this.state} /></Grid>
               </Grid>
             </Grid>
           </Grid>
