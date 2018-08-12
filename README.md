@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [![Build Status](https://travis-ci.org/EhabGamal/pansion.svg?branch=master)](https://travis-ci.org/EhabGamal/pansion)
 [![Maintainability](https://api.codeclimate.com/v1/badges/edcad2b0f416fce49256/maintainability)](https://codeclimate.com/github/EhabGamal/pansion/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/edcad2b0f416fce49256/test_coverage)](https://codeclimate.com/github/EhabGamal/pansion/test_coverage)
+[![Coverage Status](https://coveralls.io/repos/github/EhabGamal/pansion/badge.svg?branch=master)](https://coveralls.io/github/EhabGamal/pansion?branch=master)
 [![License](https://img.shields.io/github/license/ehabgamal/pansion.svg)](https://github.com/EhabGamal/pansion/blob/master/LICENSE)
 
 ## TL;DR
@@ -18,6 +19,9 @@ npm i
 npm start
 ```
 Now visit [localhost:3000](http://localhost:3000) and that's it!
+
+## Run test
+It's as simple as running `npm test`
 
 ## Notes
 The application is consuming the following API [api.myjson.com/bins/tl0bp](https://api.myjson.com/bins/tl0bp).
