@@ -20,28 +20,20 @@ class SortingForm extends Component {
       <Paper className="paper">
         <Grid container spacing={16} alignItems="center" justify="flex-end">
           <Grid item id="nights">
-            <Typography variant="subheading">
-              Total Nights: {this.props.nights}
-            </Typography>
+            <Typography variant="subheading">Total Nights: {this.props.nights}</Typography>
           </Grid>
           <Grid item>
             <Button
-              id="name"
-              variant="contained"
+              id="name" variant="contained"
               onClick={e => this.changeSort('name')}
-              color={this.state.sortField === "name" ? "primary" : "default"}
-            >
-              <SortByAlphaIcon color="secondary" />
-              &nbsp;by name
+              color={this.state.sortField === "name" ? "primary" : "default"} >
+              <SortByAlphaIcon color="secondary" />&nbsp;by name
             </Button>
             <Button
-              id="price"
-              variant="contained"
+              id="price" variant="contained"
               onClick={e => this.changeSort('price')}
-              color={this.state.sortField === "price" ? "primary" : "default"}
-            >
-              <AttachMonyIcon color="secondary" />
-              &nbsp;by price
+              color={this.state.sortField === "price" ? "primary" : "default"} >
+              <AttachMonyIcon color="secondary" />&nbsp;by price
             </Button>
           </Grid>
         </Grid>
