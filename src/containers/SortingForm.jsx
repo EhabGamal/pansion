@@ -50,7 +50,7 @@ class SortingForm extends Component {
   }
   changeSort(field) {
     let newState = { sortField: field, order: this.state.order };
-    newState.order *= this.state.sortField === newState.sortField ? -1 : 1;
+    newState.order = this.state.sortField === newState.sortField ? this.state.order * -1 : 1;
     this.setState(
       newState,
       () => this.props.onSort({ sort: this.state })
