@@ -27,40 +27,20 @@ class SearchForm extends Component {
       <form noValidate>
         <Grid container spacing={16} alignContent="center">
           <Grid item xs={12}>
-            <Typography variant="headline" color="primary" gutterBottom >
-              Welcome to Pansion Hotels.&nbsp;
-              <HotelIcon fontSize="inherit" />
-            </Typography>
+            <Typography variant="headline" color="primary" gutterBottom >Welcome to Pansion Hotels.&nbsp;<HotelIcon fontSize="inherit" /></Typography>
           </Grid>
         </Grid>
         <Grid container spacing={16} justify="space-evenly">
           <Grid item xs={12} sm={4} md={3}>
-            <DateInput
-              id="fromDate"
-              title="From"
-              value={this.state.fromDate}
-              onChange={this.setDate}
-              error={this.state.error}
-            />
+            <DateInput id="fromDate" title="From" value={this.state.fromDate} onChange={this.setDate} error={this.state.error} />
           </Grid>
           <Grid item xs={12} sm={4} md={3}>
-            <DateInput
-              id="toDate"
-              title="To"
-              value={this.state.toDate}
-              onChange={this.setDate}
-              error={this.state.error}
-            />
+            <DateInput id="toDate" title="To" value={this.state.toDate} onChange={this.setDate} error={this.state.error} />
           </Grid>
           <Grid item xs={12} sm={4} md={2}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={this.searchHotels}
-              disabled={!(this.state.toDate && this.state.fromDate && !this.state.error)}
-            >
-              <SearchIcon />
-              &nbsp;Search
+            <Button variant="contained" color="primary" onClick={this.searchHotels}
+              disabled={!(this.state.toDate && this.state.fromDate && !this.state.error)} >
+              <SearchIcon />&nbsp;Search
             </Button>
           </Grid>
         </Grid>

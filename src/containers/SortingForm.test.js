@@ -28,28 +28,16 @@ describe('SortingForm Component', () => {
     expect(btnPrice).toHaveLength(1);
   });
 
-  it('Should sort hotels by name', () => {
+  it('Should sort hotels by name and price', () => {
     wrapper.find('#name').simulate('click')
     expect(changeSortSpy).toBeCalled();
     let state = wrapper.instance().state;
     expect(state).toEqual({sortField: 'name', order: 1});
 
-    wrapper.find('#name').simulate('click')
-    expect(changeSortSpy).toBeCalled();
-    state = wrapper.instance().state;
-    expect(state).toEqual({sortField: 'name', order: -1});
-  });
-
-  it('Should sort hotels by price', () => {
     wrapper.find('#price').simulate('click')
     expect(changeSortSpy).toBeCalled();
-    let state = wrapper.instance().state;
+    state = wrapper.instance().state;
     expect(state).toEqual({sortField: 'price', order: 1});
-
-    wrapper.find('#price').simulate('click')
-    expect(changeSortSpy).toBeCalled();
-    state = wrapper.instance().state;
-    expect(state).toEqual({sortField: 'price', order: -1});
   });
 
   afterAll(() => {

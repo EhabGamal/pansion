@@ -14,14 +14,13 @@ describe('DateInput Component', () => {
       value="10-15-2020"
       error />);
   })
-  it('should render the error message', () => {
+
+  it('should render the error message and input label', () => {
     const errorLabel = wrapper.find('#testDateError');
-    expect(errorLabel).toHaveLength(1);
-    expect(errorLabel.props().children).toContain('Invalid date');
-  });
-  it('should render the input label', () => {
     const inputLabel = wrapper.find('.date-input-label');
+    expect(errorLabel).toHaveLength(1);
     expect(inputLabel).toHaveLength(1);
+    expect(errorLabel.props().children).toContain('Invalid date');
     expect(inputLabel.props().children).toContain('Test');
   });
 })
